@@ -1,0 +1,61 @@
+<template>
+  <v-app-bar
+    :clipped-left="clipped"
+    fixed
+    app
+  >
+    <v-app-bar-nav-icon @click.stop="$emit('drawer')"/>
+    <v-btn icon @click.stop="$emit('miniVariant')">
+      <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+    </v-btn>
+    <v-btn icon @click.stop="$emit('clipped')">
+      <v-icon>mdi-application</v-icon>
+    </v-btn>
+    <v-btn
+      icon
+      @click.stop="$emit('fixed')"
+    >
+      <v-icon>mdi-minus</v-icon>
+    </v-btn>
+    <v-toolbar-title v-text="title"/>
+    <v-spacer/>
+    <v-btn
+      icon
+      @click.stop="$emit('rightDrawer')"
+    >
+      <v-icon>mdi-menu</v-icon>
+    </v-btn>
+  </v-app-bar>
+</template>
+
+<script>
+export default {
+  name: "AppToolbar",
+  props: {
+    clipped: {
+      type: Boolean,
+      default: false,
+    },
+    title: {
+      type: String,
+      default: 'Vuetify'
+    },
+    drawer: {
+      type: Boolean,
+      default: false,
+    },
+    miniVariant: {
+      type: Boolean,
+      default: false,
+    },
+    fixed: {
+      type: Boolean,
+      default: false,
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
